@@ -1,0 +1,16 @@
+# Prowlarr - Indexer Manager
+# Centralized management of torrent and usenet indexers for *arr applications
+
+services:
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${CONFIG_PATH}:/config
+    ports:
+      - "${PROWLARR_PORT}:9696"
+    restart: ${RESTART_POLICY}
