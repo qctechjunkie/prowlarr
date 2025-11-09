@@ -14,3 +14,9 @@ services:
     ports:
       - "${PROWLARR_PORT}:9696"
     restart: ${RESTART_POLICY}
+    networks:
+      - arrnetwork
+
+networks:
+  arrnetwork:
+    external: true
